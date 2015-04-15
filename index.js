@@ -1,5 +1,6 @@
 ///configurations
-var channelUrl = 'https://hooks.slack.com/services/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';
+///slack incoming webhook channel
+var channelUrl = process.env.CHANNEL;
 var channelName = '#dilbert';
 var channelUsername = 'dilbert';
 var messagePretext = 'Your daily dose of office humor ';
@@ -10,8 +11,11 @@ var cheerio = require('cheerio');
 var endpoint = 'http://dilbert.com';
 var cronTime = '00 00 11 * * 1-7';
 var timeZone = 'America/New_York';
+var port = process.env.PORT || 80;
 ////end configurations
-
+var http = require('http');
+var fs = require('fs');
+var index = fs.readFileSync('index.html');
 var CronJob = require('cron').CronJob;
 var job = new CronJob({
 	cronTime: cronTime,
@@ -50,15 +54,10 @@ var job = new CronJob({
 	timeZone: timeZone
 });
 job.start();
-
-var http = require('http');
-var fs = require('fs');
-var index = fs.readFileSync('index.html');
-
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end(index);
-}).listen(process.env.PORT);
+}).listen(port);
 
 
 
