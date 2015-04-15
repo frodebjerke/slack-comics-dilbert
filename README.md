@@ -1,7 +1,7 @@
 # Dilbert-Slack
 Small Node.js application that automatically sends Dilbert comic strips to your Slack channel.
 
-![img](http://i.imgur.com/pIX1QFk.png)
+![img](http://i.imgur.com/pLPBUHT.png)
 
 ## Instructions
 * Setup appropriate incoming webhooks for your Slack channel.
@@ -19,9 +19,9 @@ Small Node.js application that automatically sends Dilbert comic strips to your 
 ![img](http://i.imgur.com/Otyo3OC.png)
 
 ### Download the Dilbert-Slack application.
-Download the zip version of Dilbert-Slack or Fork it.
+Download the zip version of Dilbert-Slack or fork it.
 ### Edit the configurations in the index.js.
 The index.js file contains important configurations that need to be updated appropriately. **The Dilbert-Slack application will not work out of the box.**
 
 ###Push the Dilbert-Slack application to Heroku.
-Dilbert-Slack is not completely contingent on Heroku. You can use other hosting providers such as Digital Ocean, Rackspace, or Modulus, howerver it does contain the necessary elements to be seamlessly launched into Heroku.
+Dilbert-Slack is not completely contingent on Heroku. You can use other hosting providers such as Digital Ocean, Rackspace, or Modulus, however it does contain the necessary files to be seamlessly running in Heroku.
