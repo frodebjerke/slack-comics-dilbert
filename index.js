@@ -1,7 +1,7 @@
 ///configurations
 ///slack incoming webhook channel
 var channelUrl = process.env.CHANNEL;
-var channelName = '#dilbert';
+var channelName = process.env.CHANNEL_NAME || '#comics';
 var channelUsername = 'dilbert';
 var messagePretext = 'Your daily dose of office humor ';
 var messageTitle = 'Daily Dilbert';
@@ -22,7 +22,7 @@ var job = new CronJob({
 	onTick: function() {
 		request(endpoint, function(error, response, body) {
 			if (error && response.statusCode != 200) {
-				return console.log('ERROR ', response.statusCode) 
+				return console.log('ERROR ', response.statusCode)
 			}
 			try {
 				$ = cheerio.load(body);
@@ -58,6 +58,3 @@ http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end(index);
 }).listen(port);
-
-
-
